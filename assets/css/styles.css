@@ -5,7 +5,11 @@
 
 /* Grid */
 #grid-container {
-    display: flex;
+<<<<<<< HEAD
+    display: grid
+;
+
+>>>>>>> change-grid
     grid-template-columns: 20vw auto;
     grid-template-rows: 100vh auto;
 }
