@@ -1,0 +1,157 @@
+* {
+    box-sizing: border-box;
+    padding: 0 !important;
+}
+
+/* Grid */
+#grid-container {
+    display: grid;
+    grid-template-columns: 20vw auto;
+    grid-template-rows: 100vh auto;
+}
+
+
+/* Side Bar */
+body {
+    background-color: rgba(216, 191, 216, 0.5);
+    height: 100vh;
+    padding: 1% !important;
+    position: fixed;
+}
+
+.hanging-nav {
+    background-color: white;
+    border-radius: 1%;
+    box-shadow: 0 5px 15px 1px rgba(0, 0, 0, 0.3);
+    width: 19vw;
+    height: 95vh !important;
+}
+
+.sidebar button {
+    background-color: rgba(216, 191, 216, 0.5);
+    border: none;
+    display: block;
+    outline: none;
+    margin: 2vw !important;
+    padding: 0.2vw 1vw !important;
+    text-align: left;
+}
+
+.sidebar button:hover{
+    box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.5);
+}
+
+.sidebar a {
+    color: black;
+    text-decoration: none !important;
+}
+
+.left-padded {
+    padding-left: 2vw !important;
+}
+
+.heading {
+    font-family: 'Merriweather', serif;
+}
+
+.svg-div {
+    background-color: rgba(216, 191, 216, 0.5);
+}
+
+.table-striped>tbody>tr:nth-child(odd)>td, 
+.table-striped>tbody>tr:nth-child(odd)>th {
+   background-color: rgba(216, 191, 216, 0.5);
+ }
+/* Main Container */
+.main-container {
+    background-color: rgba(216, 191, 216, 0.5);
+    grid-column-start: 2;
+}
+
+.main-content {
+    background-color: white;
+    font-size: 1em;
+    font-family: 'Open Sans', sans-serif;
+    padding: 2vw !important;
+    text-align: justify;
+}
+
+.columns{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 1em;
+}
+
+/* Navbar */
+nav .stick-top{
+    border-bottom: 1px solid #cdcdcd;
+}
+
+.navbar-img {
+    padding-right: 2vw !important;
+    width: 5vw;
+    /* Move profile image to right */
+    position: relative;
+    left: 60vw;
+}
+
+@media screen and (max-width: 768px) {
+    /* remove profile image for phones*/
+    img.navbar-img{
+        display: none;
+    }
+
+
+    .navbar{
+        /* place the navbar under flowing out sidebar*/
+        position: static;
+        padding-right: 1.5rem!important;
+        /* place hamburger icon at the right */
+        justify-content: flex-end;
+    }
+
+    #grid-container {
+        /* remove grid so content fits the screen */
+        display: inline-flexbox;
+        /* make main container fill the screen */
+        grid-template-columns: 0vw auto;
+        grid-template-rows: 100vh auto;
+    }
+
+    .navbar-collapse {
+        position: fixed;
+        top: 0rem;
+        /* background color for collapsing navigation */
+        background-color: white;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        padding-bottom: 1rem;
+        /* width - part of the screen that is covered when the navbar streches */
+        width: 50%;
+        height: 100%!important;
+    }
+
+    .navbar-collapse.collapsing {
+        /* match to width */
+        left: -50%;
+        transition: height 0s ease;
+    }
+
+    .navbar-collapse.show {
+        left: 0;
+        /* adjust show animation */
+        transition: left 250ms ease-in-out;
+    }
+
+    .navbar-toggler.collapsed ~ .navbar-collapse {
+        /* adjust collapse animation */
+        transition: left 500ms ease-in-out;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    /* Fix for hanging-nav hiding on larger devices */
+    .hanging-nav{
+        display: inline-block!important;
+    }
+}
